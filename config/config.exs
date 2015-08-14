@@ -1,6 +1,13 @@
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
+alias Huebot.Plugins
+
+config :huebot, :slack_token, System.get_env("SLACK_BOT_TOKEN")
+
+config :huebot, :plugins, [
+  Plugins.Hue
+]
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this

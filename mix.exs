@@ -14,7 +14,10 @@ defmodule Huebot.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
+    [
+      mod: {Huebot, []},
+      applications: [:logger, :slack]
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +30,11 @@ defmodule Huebot.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    []
+    [
+      {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.2"},
+      {:httpotion, "~> 2.1.0"},
+      {:slack, "~> 0.2.0"},
+      {:websocket_client, git: "https://github.com/jeremyong/websocket_client"}
+    ]
   end
 end
