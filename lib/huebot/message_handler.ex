@@ -15,9 +15,9 @@ defmodule Huebot.MessageHandler do
     IO.puts "Message received: #{message.text}"
 
     plugins = Application.get_env(:huebot, :plugins)
-    plugin = plugins |> List.first
-
-    send_message_to_plugin(plugin, message, slack, state)
+              |> Enum.each(fn (plugin) ->
+                 send_message_to_plugin(plugin, message, slack, state)
+              end)
 
     {:ok, state}
   end
