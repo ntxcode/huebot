@@ -8,10 +8,11 @@ defmodule Huebot.Supervisor do
   @message_handler_name Huebot.MessageHandler
 
   def init(:ok) do
-    children = []
+    children = [
+      worker(@message_handler_name, [Application.get_env(:huebot, :slack_token), [name: @message_handler_name]])
+    ]
 
-    IO.puts "Slack token: #{Application.get_env(:huebot, :slack_token)}"
-    Huebot.MessageHandler.start_link(Application.get_env(:huebot, :slack_token), [])
+    IO.puts "Starting supervisor access..."
     supervise(children, strategy: :one_for_one)
   end
 end
