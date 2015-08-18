@@ -35,7 +35,7 @@ defmodule Huebot.Mixfile do
       {:httpotion, "~> 2.1.0"},
       {:slack, "~> 0.2.0"},
       {:websocket_client, git: "https://github.com/jeremyong/websocket_client"},
-      {:tentacat, github: "edgurgel/tentacat"},
+      {:tentacat, github: "estevaoam/tentacat", branch: "update-httpoison-version"},
       {:timex, "~> 0.19.0"}
     ]
   end

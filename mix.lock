@@ -8,7 +8,7 @@
   "jsx": {:hex, :jsx, "2.4.0"},
   "slack": {:hex, :slack, "0.2.0"},
   "ssl_verify_hostname": {:hex, :ssl_verify_hostname, "1.0.5"},
-  "tentacat": {:git, "git://github.com/edgurgel/tentacat.git", "1332175ab0fb56d1893fab6c83ff7f218b76831c", []},
+  "tentacat": {:git, "git://github.com/estevaoam/tentacat.git", "f9b1690e1c001c3077ff34ed70df726ae6ed2180", [branch: "update-httpoison-version"]},
   "timex": {:hex, :timex, "0.19.2"},
   "tzdata": {:hex, :tzdata, "0.1.7"},
   "websocket_client": {:git, "https://github.com/jeremyong/websocket_client", "f6892c8b55004008ce2d52be7d98b156f3e34569", []}}
