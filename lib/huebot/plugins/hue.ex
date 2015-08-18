@@ -1,9 +1,20 @@
 defmodule Huebot.Plugins.Hue do
-  alias Huebot.Plugin
+  use GenEvent
+  alias Huebot.MessageHandler
 
   @matcher ~r/hue(( )+)?hue/i
 
-  def response(message_received, slack, state) do
+  # Handle the event of receiving a message
+  def handle_event({:message, message, slack, slack_state}, state) do
+    if Regex.match?(@matcher, message.text) do
+      response(message, slack, slack_state)
+      |> Slack.send_message(message.channel, slack)
+    end
+
+    {:ok, state}
+  end
+
+  defp response(message_received, slack, state) do
     image_link = [
       "http://d.pr/i/12Nqk+",
       "http://d.pr/i/16VJs+",
@@ -11,10 +22,5 @@ defmodule Huebot.Plugins.Hue do
     ] |> Enum.shuffle |> hd
 
     "THIS IS HUE. #{image_link}"
-  end
-
-  def parse(message, slack, state) do
-    response(message, slack, state)
-    |> Plugin.parse(@matcher, message, slack, state)
   end
 end
