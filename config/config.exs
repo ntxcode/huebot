@@ -6,8 +6,14 @@ alias Huebot.Plugins
 config :huebot, :slack_token, System.get_env("SLACK_BOT_TOKEN")
 
 config :huebot, :plugins, [
-  Plugins.Hue
+  Plugins.Hue,
+  Plugins.Github.ListPullRequests
 ]
+
+config :huebot, :github_token, System.get_env("GITHUB_ACCESS_TOKEN")
+
+# config :logger, :handle_otp_reports, true
+# config :logger, :handle_sasl_reports, true
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this

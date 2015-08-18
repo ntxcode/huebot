@@ -34,7 +34,9 @@ defmodule Huebot.Mixfile do
       {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.2"},
       {:httpotion, "~> 2.1.0"},
       {:slack, "~> 0.2.0"},
-      {:websocket_client, git: "https://github.com/jeremyong/websocket_client"}
+      {:websocket_client, git: "https://github.com/jeremyong/websocket_client"},
+      {:tentacat, github: "edgurgel/tentacat"},
+      {:timex, "~> 0.19.0"}
     ]
   end
 end
