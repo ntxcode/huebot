@@ -9,6 +9,25 @@ Your experimental, lightweight, moody (but useful) and customizable chat bot for
 2. Start it running `mix run --no-halt` in your server.
 3. Profit
 
+## Plugins
+
+### Github
+
+By default the Github integration plugin is enabled, currectly we have these modules:
+
+* ListPullRequests
+
+#### Configuration
+
+Just generates and sets the `GITHUB_ACCESS_TOKEN` environment variable.
+
+## Roadmap
+
+* [ ] Ability to schedule jobs
+* [ ] Send formatted Slack messages
+* [ ] Redis integration for persistence
+* [ ] Test coverage :flushed:
+
 ## Gibe me contributionz pls
 
 1. Fork it
