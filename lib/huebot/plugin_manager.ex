@@ -6,7 +6,7 @@ defmodule Huebot.PluginManager do
     plugins = Application.get_env(:huebot, :plugins)
               |> Enum.each(
                 fn (plugin) ->
-                  GenEvent.add_handler(Huebot.PluginManager, plugin, [])
+                  GenEvent.add_mon_handler(Huebot.PluginManager, plugin, [])
                 end)
 
     {:ok, self}
