@@ -23,10 +23,10 @@ config :huebot, :github_token, System.get_env("GITHUB_ACCESS_TOKEN")
 
 # Sample configuration:
 #
-#     config :logger, :console,
-#       level: :info,
-#       format: "$date $time [$level] $metadata$message\n",
-#       metadata: [:user_id]
+config :logger, :console,
+  level: :info,
+  format: "$date $time [$level] $metadata$message\n",
+  metadata: [:user_id]
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
