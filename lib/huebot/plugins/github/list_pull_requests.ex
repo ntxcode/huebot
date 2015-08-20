@@ -16,8 +16,10 @@ defmodule Huebot.Plugins.Github.ListPullRequests do
 
     [owner, repo] = String.split(repo_info, "/")
 
-    Tentacat.Pulls.list(owner, repo, client)
-    |> Enum.reduce("", fn (pull, acc) -> "#{acc}\n#{pull_row(pull)}" end)
+    res = Tentacat.Pulls.list(owner, repo, client)
+    |> Enum.reduce("Ok, here are all open pull requests for *#{repo_info}*:\n", fn (pull, acc) -> "#{acc}\n#{pull_row(pull)}" end)
+
+    "#{res}\n\nEnjoy!"
   end
 
   # Handle the event of receiving a message
