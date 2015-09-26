@@ -6,6 +6,7 @@
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "ea3305d21f37eced4fac290f64b068e56df7de80", [tag: "v4.1.2"]},
   "idna": {:hex, :idna, "1.0.2"},
   "jsx": {:hex, :jsx, "2.4.0"},
+  "poison": {:hex, :poison, "1.5.0"},
   "slack": {:hex, :slack, "0.2.0"},
   "ssl_verify_hostname": {:hex, :ssl_verify_hostname, "1.0.5"},
   "tentacat": {:git, "git://github.com/estevaoam/tentacat.git", "f9b1690e1c001c3077ff34ed70df726ae6ed2180", [branch: "update-httpoison-version"]},

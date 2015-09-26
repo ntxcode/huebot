@@ -1,5 +1,5 @@
-Huebot
-======
+Huebot :alien:
+==============
 
 Your experimental, lightweight, moody (but useful) and customizable chat bot for Slack.
 
@@ -20,6 +20,15 @@ By default the Github integration plugin is enabled, currectly we have these mod
 #### Configuration
 
 Just generates and sets the `GITHUB_ACCESS_TOKEN` environment variable.
+
+### Zupper
+
+It integrates with our not-released deployer.
+
+#### Configuration
+
+To configure it, just set `ZUPPER_HOOK_URL` to the Zupper's
+default hook URL.
 
 ## Roadmap
 

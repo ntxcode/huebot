@@ -16,7 +16,7 @@ defmodule Huebot.Mixfile do
   def application do
     [
       mod: {Huebot, []},
-      applications: [:logger, :slack]
+      applications: [:logger, :slack, :httpotion]
     ]
   end
 
@@ -36,7 +36,8 @@ defmodule Huebot.Mixfile do
       {:slack, "~> 0.2.0"},
       {:websocket_client, git: "https://github.com/jeremyong/websocket_client"},
       {:tentacat, github: "estevaoam/tentacat", branch: "update-httpoison-version"},
-      {:timex, "~> 0.19.0"}
+      {:timex, "~> 0.19.0"},
+      {:poison, "~> 1.5"}
     ]
   end
 end

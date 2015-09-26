@@ -7,10 +7,12 @@ config :huebot, :slack_token, System.get_env("SLACK_BOT_TOKEN")
 
 config :huebot, :plugins, [
   Plugins.Hue,
-  Plugins.Github.ListPullRequests
+  Plugins.Github.ListPullRequests,
+  Plugins.Zupper.Deploy
 ]
 
 config :huebot, :github_token, System.get_env("GITHUB_ACCESS_TOKEN")
+config :huebot, :zupper_hook_url, System.get_env("ZUPPER_HOOK_URL")
 
 # config :logger, :handle_otp_reports, true
 # config :logger, :handle_sasl_reports, true
