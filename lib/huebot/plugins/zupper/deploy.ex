@@ -4,7 +4,7 @@ defmodule Huebot.Plugins.Zupper.Deploy do
   alias Huebot.MessageHandler
 
   @doc "Format: huebot deploy project (project) (tag)"
-  @matcher ~r/huebot deploy (?<project>([a-zA-Z0-9-_\/])+) (?<tag>([a-zA-Z0-9-_\/])+)/i
+  @matcher ~r/huebot deploy (?<project>([a-zA-Z0-9-_\/])+) (?<tag>([a-zA-Z0-9-_\.\/])+)/i
 
   def response(message, slack, state) do
     %{"project" => project_name, "tag" => tag} = Regex.named_captures(@matcher, message.text)
