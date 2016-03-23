@@ -14,7 +14,7 @@ defmodule Huebot.Plugins.Gitlab.TriggerBuild do
     api_url = Application.get_env(:huebot, :gitlab_api_url)
 
     # Fetch all projects
-    projects = HTTPotion.get("#{api_url}/projects",
+    projects = HTTPotion.get("#{api_url}/projects?per_page=200",
       [
         headers: [
           "Content-Type": "application/json",
