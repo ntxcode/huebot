@@ -4,15 +4,17 @@ use Mix.Config
 alias Huebot.Plugins
 
 config :huebot, :slack_token, System.get_env("SLACK_BOT_TOKEN")
+config :huebot, :github_token, System.get_env("GITHUB_ACCESS_TOKEN")
+config :huebot, :zupper_hook_url, System.get_env("ZUPPER_HOOK_URL")
+config :huebot, :gitlab_private_token, System.get_env("GITLAB_PRIVATE_TOKEN")
+config :huebot, :gitlab_api_url, System.get_env("GITLAB_API_URL")
 
 config :huebot, :plugins, [
   Plugins.Hue,
   Plugins.Github.ListPullRequests,
-  Plugins.Zupper.Deploy
+  Plugins.Zupper.Deploy,
+  Plugins.Gitlab.TriggerBuild
 ]
-
-config :huebot, :github_token, System.get_env("GITHUB_ACCESS_TOKEN")
-config :huebot, :zupper_hook_url, System.get_env("ZUPPER_HOOK_URL")
 
 # config :logger, :handle_otp_reports, true
 # config :logger, :handle_sasl_reports, true
