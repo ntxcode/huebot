@@ -5,7 +5,7 @@ defmodule Huebot.Plugins.Gitlab.TriggerBuild do
   alias Huebot.MessageHandler
 
   @doc "Format: huebot trigger (repo) (branch)"
-  @matcher ~r/huebot trigger (?<repo>([a-zA-Z0-9-\/])+) (?<branch>([a-zA-Z0-9-])+)/i
+  @matcher ~r/huebot trigger (?<repo>([a-zA-Z0-9-\/])+) (?<branch>([a-zA-Z0-9-\.])+)/i
 
   def response(message, slack, state) do
     %{"repo" => repo, "branch" => branch} = Regex.named_captures(@matcher, message.text)
