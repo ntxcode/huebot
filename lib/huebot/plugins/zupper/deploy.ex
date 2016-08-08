@@ -4,16 +4,22 @@ defmodule Huebot.Plugins.Zupper.Deploy do
   alias Huebot.MessageHandler
 
   @doc "Format: huebot deploy project (project) (tag)"
-  @matcher ~r/huebot deploy (?<project>([a-zA-Z0-9-_\/])+) (?<tag>([a-zA-Z0-9-_\.\/])+)/i
+  @matcher ~r/huebot deploy (?<project>([a-zA-Z0-9-_\/])+) (?<tag>([a-zA-Z0-9-_\.\/])+)( (?<stack>([a-zA-Z0-9-_\.\/])+))?/i
 
   def response(message, slack, state) do
-    %{"project" => project_name, "tag" => tag} = Regex.named_captures(@matcher, message.text)
+    %{"project" => project_name, "tag" => tag, "stack" => stack} = Regex.named_captures(@matcher, message.text)
 
     zupper_json = %{
       "project_name" => project_name,
-      "branch" => tag
-    } |> Poison.encode!
+      "branch" => tag,
+      "stack" => stack
+    }
 
+    if is_nil(stack) || stack == "" do
+      zupper_json = Map.delete(zupper_json, "stack")
+    end
+
+    zupper_json = zupper_json |> Poison.encode!
     hook_url = Application.get_env(:huebot, :zupper_hook_url)
 
     HTTPotion.post(hook_url,
