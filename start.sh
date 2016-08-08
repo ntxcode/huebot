@@ -1,2 +1,2 @@
 #!/bin/bash
-source .env && mix run --no-halt
+(source .env || true) && mix run --no-halt
